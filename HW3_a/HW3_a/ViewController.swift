@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
 
+    
     @IBOutlet weak var LatP1: UITextField!
     
     @IBOutlet weak var LatP2: UITextField!
@@ -20,12 +21,14 @@ class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
     
     @IBOutlet weak var DistanceTextField: UITextField!
     
+    var distance: Double = 0.0
+    var bearing: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let detectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dissmissKeyboard))
+        let detectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(detectTouch)
         
         self.LatP1.delegate = self
@@ -33,7 +36,7 @@ class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
         self.LongP1.delegate = self
     }
     
-    @objc func dissmissKeyboard(){
+    @objc func dismissKeyboard(){
         self.view.endEditing(true)
     }
     
@@ -49,7 +52,9 @@ class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
     func indicateSelection(distance: String) {
         DistanceTextField.text = distance
     }
-    
+    //if let navcontroller = segue.destination as? UI navcontrol.
+        //if let = navcont.children[0] as? settings vc
+            //dest.delegate = self
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ViewSettingsSegue" {
             if segue.destination.children[0] is SettingsViewController {

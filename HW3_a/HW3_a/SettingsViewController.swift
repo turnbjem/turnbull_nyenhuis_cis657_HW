@@ -38,6 +38,12 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func savepressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func cancelpressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

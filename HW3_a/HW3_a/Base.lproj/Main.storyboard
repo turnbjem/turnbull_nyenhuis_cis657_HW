@@ -91,6 +91,13 @@
                                     <segue destination="QyP-cf-7Br" kind="show" identifier="ViewSettingsSegue" id="DWL-AW-Jl8"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ko7-EN-cmM">
+                                <rect key="frame" x="123" y="285" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -125,21 +132,14 @@
                         <viewLayoutGuide key="safeArea" id="7oU-Da-shS"/>
                     </view>
                     <navigationItem key="navigationItem" id="agF-o1-vfe">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="oVb-dH-iMG">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IKa-bR-Tbl">
-                                <rect key="frame" x="20" y="7" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Eg4-BR-s7P">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mvm-b6-fLU">
-                                <rect key="frame" x="360" y="7" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="NBP-9j-Dw8">
                             <connections>
-                                <segue destination="fXp-ZF-Ftl" kind="unwind" unwindAction="SaveWithSegue:" id="0XC-IW-wjE"/>
+                                <action selector="cancelpressed:" destination="vYO-Vo-Pie" id="NtC-MX-JUh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="hFU-5u-BLK">
+                            <connections>
+                                <action selector="savepressed:" destination="vYO-Vo-Pie" id="RPe-Ua-kKq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -166,7 +166,6 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46H-zy-RlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="fXp-ZF-Ftl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2127.536231884058" y="-178.125"/>
         </scene>
