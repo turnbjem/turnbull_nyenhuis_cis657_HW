@@ -78,9 +78,7 @@ class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
         DistanceTextField.text = ""
     }
     
-    @IBAction func Save(segue : UIStoryboardSegue){
-        
-    }
+    
 }
 
 extension ViewController : UITextFieldDelegate{
