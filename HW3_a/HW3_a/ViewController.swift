@@ -21,6 +21,8 @@ class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
     @IBOutlet weak var DistanceTextField: UITextField!
     
     
+    @IBOutlet weak var BearingTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -47,16 +49,21 @@ class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
     }
     
     func indicateSelection(distance: String) {
-        DistanceTextField.text = distance
+        self.DistanceTextField.text = distance
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ViewSettingsSegue" {
-            if segue.destination.children[0] is SettingsViewController {
-//                destVC.selection? = self.DistanceTextField.text
+            if let nc = segue.destination as? UINavigationController {
+                if let dest = nc.children[0] as? SettingsViewController {
+                    dest.delegate = self
+                }
+                
+            }
+            
             }
         }
-    }
+    
     
     @IBAction func CalcTapped(_ sender: UIButton) {
         if self.checkInput(){

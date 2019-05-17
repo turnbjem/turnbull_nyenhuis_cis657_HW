@@ -27,12 +27,7 @@ class SettingsViewController: UIViewController {
         self.DistanceUnitsPicker.dataSource = self
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if let d = self.delegate {
-            d.indicateSelection(distance: selection)
-        }
-    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,8 +35,14 @@ class SettingsViewController: UIViewController {
 
     
     @IBAction func SavePressed(_ sender: UIBarButtonItem) {
+        if let d = self.delegate {
+            d.indicateSelection(distance: selection)
+        }
         self.dismiss(animated: true, completion: nil)
+        
     }
+    
+
     
     
     

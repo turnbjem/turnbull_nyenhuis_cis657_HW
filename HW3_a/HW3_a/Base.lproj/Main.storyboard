@@ -77,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vdl-fb-77k">
-                                <rect key="frame" x="123" y="241" width="97" height="30"/>
+                                <rect key="frame" x="123" y="241" width="260" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -91,12 +91,20 @@
                                     <segue destination="QyP-cf-7Br" kind="show" identifier="ViewSettingsSegue" id="DWL-AW-Jl8"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M6h-kz-Q3w">
+                                <rect key="frame" x="123" y="279" width="260" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="GCs-TR-irI"/>
                     <connections>
+                        <outlet property="BearingTextField" destination="M6h-kz-Q3w" id="CbJ-fm-Odo"/>
                         <outlet property="DistanceTextField" destination="vdl-fb-77k" id="OHV-Uc-J45"/>
                         <outlet property="LatP1" destination="LLv-fR-bH3" id="BXb-uv-qaU"/>
                         <outlet property="LatP2" destination="IXf-YW-OlX" id="YNI-vC-CYR"/>
@@ -106,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197" y="-178"/>
+            <point key="canvasLocation" x="1195.6521739130435" y="-178.125"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Rgg-m3-72c">
