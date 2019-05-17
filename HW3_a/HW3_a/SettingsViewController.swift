@@ -15,6 +15,8 @@ protocol DistanceSelectionViewControllerDelegate {
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var DistanceLabel: UILabel!
+    
     @IBOutlet weak var DistanceUnitsPicker: UIPickerView!
     var pickerData: [String] = [String]()
     var selection : String = "Kilometers"
