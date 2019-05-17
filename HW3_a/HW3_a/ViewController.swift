@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
 
@@ -21,8 +22,18 @@ class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
     
     @IBOutlet weak var DistanceTextField: UITextField!
     
-    var distance: Double = 0.0
+    @IBOutlet weak var BearingTextField: UITextField!
+    
+    var distance: CLLocationDistance = 0.0
     var bearing: Double = 0.0
+    
+    var latitude1 : CLLocationDegrees = 0.0
+    var longitude1 : CLLocationDegrees = 0.0
+    var latitude2 : CLLocationDegrees = 0.0
+    var longitude2 : CLLocationDegrees = 0.0
+    
+    var loc1 : CLLocation = CLLocation()
+    var loc2 : CLLocation = CLLocation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +53,7 @@ class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
     
     func checkInput() -> Bool {
         var OK = false
-        if LatP1.text != "" {
+        if ((LatP1.text != "")&&(LatP2.text != "")&&(LongP1.text != "")&&(LongP1.text != "")){
             OK = true
         }
         return OK
@@ -65,7 +76,20 @@ class ViewController: UIViewController, DistanceSelectionViewControllerDelegate{
     
     @IBAction func CalcTapped(_ sender: UIButton) {
         if self.checkInput(){
-            DistanceTextField.text = LatP1.text
+            latitude1 = Double(LatP1.text!)!
+            latitude2 = Double(LatP2.text!)!
+            longitude1 = Double(LongP1.text!)!
+            longitude2 = Double(LongP2.text!)!
+            
+            
+            loc1 = CLLocation(latitude: latitude1, longitude: longitude1)
+            loc2 = CLLocation(latitude: latitude2, longitude: longitude2)
+            
+            distance = loc1.distance(from: loc2)
+            bearing = loc1.bearingToPoint(point: loc2)
+            
+            DistanceTextField.text = "Latitude 1 \(distance)"
+            BearingTextField.text = "Latitude 1 \(bearing)"
         }
         else {
             print("You have not entered a value!")
