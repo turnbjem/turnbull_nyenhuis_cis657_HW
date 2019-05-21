@@ -11,6 +11,7 @@ import UIKit
 
 protocol DistanceSelectionViewControllerDelegate {
     func indicateSelection(distanceUnits: String, bearingUnits: String)
+    func Calculate()
 }
 
 
@@ -106,7 +107,7 @@ class SettingsViewController: UIViewController {
     @IBAction func SavePressed(_ sender: UIBarButtonItem) {
         if let d = self.delegate {
             d.indicateSelection(distanceUnits: selection[0], bearingUnits:  selection[1])
-        
+            d.Calculate()
                 defaults.setValue(selection[0], forKey: "name1")
                 defaults.setValue(selection[1], forKey: "name2")
             
